@@ -1,16 +1,15 @@
 class Solution {
 public:
     int reverse(int x) {
-        long rev=0;
-		// simple logic of reverse using while loop
-		
-         while(x!=0){
-             rev=rev*10+x%10;
-             x/=10;
-         }
-		 
-		 //check condition 
-        if(rev>2147483641 || rev<-2147483641) return 0;
-        return rev;
+        int y=0;
+        while(x){
+            if(y>INT_MAX/10 || y<INT_MIN/10){
+                return 0;
+            }else{
+                y=y*10 +x%10;
+                x=x/10;
+            }
+        }
+        return y;
     }
 };
